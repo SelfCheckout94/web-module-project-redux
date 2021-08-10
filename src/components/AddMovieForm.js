@@ -107,7 +107,7 @@ const AddMovieForm = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return state;
+  return state.movie;
 };
 
 export default connect(mapStateToProps, { addMovie })(AddMovieForm);

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import { connect } from "react-redux";
+import { toggleFavorites } from "../actions/favoriteActions";
 
 const MovieHeader = (props) => {
   const displayFavorites = true;
@@ -31,7 +32,8 @@ const MovieHeader = (props) => {
 const mapStateToProps = (state) => {
   return {
     appTitle: state.appTitle,
+    displayFavorites: state.favorite.displayFavorites,
   };
 };
 
-export default connect(mapStateToProps)(MovieHeader);
+export default connect(mapStateToProps, { toggleFavorites })(MovieHeader);
