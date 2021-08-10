@@ -6,16 +6,15 @@ import {
 
 const initialState = {
   favorites: [],
-  displayFavorites: false,
+  displayFavorites: true,
 };
 
 const reducer = (state = initialState, action) => {
-  console.log(state.favorites);
   switch (action.type) {
     case TOGGLE_FAVORITES:
       return {
         ...state,
-        displayFavorites: !action.payload,
+        displayFavorites: !state.displayFavorites,
       };
     case ADD_FAVORITES:
       return {
