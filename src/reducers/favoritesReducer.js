@@ -10,6 +10,7 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
+  console.log(state.favorites);
   switch (action.type) {
     case TOGGLE_FAVORITES:
       return {
@@ -19,10 +20,14 @@ const reducer = (state = initialState, action) => {
     case ADD_FAVORITES:
       return {
         ...state,
-        favorites: [...state, action.payload],
+        favorites: [...state.favorites, action.payload],
       };
     case REMOVE_FAVORITE:
-      return state;
+      const movieId = action.payload;
+      return {
+        ...state,
+        favorites: state.favorites.filter((movie) => movie.id !== movieId),
+      };
     default:
       return state;
   }
